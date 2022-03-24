@@ -1,0 +1,44 @@
+body {
+
+    font-size: 340%;
+  
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  
+    color: black;
+  
+    line-height: 14pt;
+  
+    padding-left: 5pt;
+  
+    padding-right: 5pt;
+  
+    padding-top: 5pt;
+
+    background-color: rgba(200, 100, 55, 0.459);
+
+    background-image: url("");
+
+    background-repeat: no-repeat;
+    margin: auto;
+    background-position: center
+  }
+  
+  
+  h1 {
+  
+    font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+  
+    font-weight: bold;
+  
+    line-height: 20pt;
+  
+  }
+
+.antwoord {
+  position: absolute;
+  bottom: 10%;
+}
+
+#antwoordTxt {
+  font-size: 400%;
+}
