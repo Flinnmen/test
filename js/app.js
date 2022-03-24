@@ -14,11 +14,16 @@ function calcAan(data){
     document.getElementById('tempMinTxt').innerHTML = "Minimum = " + tempMin + " C"
     tempMax = (data.forecast.forecastday[0].day.maxtemp_c)
     document.getElementById('tempMaxTxt').innerHTML = "Maximum = " + tempMax + " C"
-    plotKorteBroek(tempMax)
+    uv = (data.forecast.forecastday[0].day.uv)
+    document.getElementById('uvTxt').innerHTML = "UV Index = " + uv
+    regen = (data.forecast.forecastday[0].day.daily_chance_of_rain)
+    document.getElementById('regenTxt').innerHTML = "Kans op regen = " + regen + "%"
+    regenMm = (data.forecast.forecastday[0].day.totalprecip_mm)
+    plotKorteBroek(tempMax, regenMm, regen, uv)
 }
 
-function plotKorteBroek(tempMax) {
-    if (tempMax >= 20) {
+function plotKorteBroek(tempMax, regenMm, regen, uv) {
+    if (tempMax >= 20 && regenKans(regenMm, regen)) {
         document.getElementById('korteBroekTxt').innerHTML = " je kan een korte broek aan"
         document.getElementById('antwoordTxt').innerHTML = "Ja"
     } else {
@@ -27,4 +32,12 @@ function plotKorteBroek(tempMax) {
     }
 }
 
-
+function regenKans(regenMm, regen) {
+    if (regen < 50){
+        return true
+    } else {
+        if (regenMm < 9){
+            return true
+        } 
+    } return false
+}
